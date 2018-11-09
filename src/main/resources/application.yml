@@ -1,0 +1,25 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: admin-server
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+  resources:
+    add-mappings: true
+  boot:
+    admin:
+      discovery:
+        ignored-services: consul
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
